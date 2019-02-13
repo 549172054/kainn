@@ -1,0 +1,49 @@
+server:
+  port: 8801
+
+spring:
+  redis:
+    database: 0
+    host: 10.9.2.248
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+
+  application:
+    name:  demo
+
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://10.9.25.67:3306/aqhg_wl_ucenter
+    username: root
+    password: EGm9PFzLbb!DSya.KH
+    hikari:
+      maxLifetime: 100000
+      maximumPoolSize: 5
+      connection-timeout: 20000
+
+
+  dubbo:
+    application:
+       name: demo
+    registry:
+       address: zookeeper://10.9.2.247:2181
+    protocol:
+       1name: dubbo
+       port: 20880
+    scan : com.aqhg.openplatform.demo.web.dubbo.provider.service  #服务暴露
+
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+logging:
+  level:
+    root: INFO
+
